@@ -1,0 +1,45 @@
+name: Greate Expectations Reports for The Lakehouse
+
+on:
+  push:
+    branches:
+    - master
+  schedule:
+    - cron: "* */3 * * *"
+
+env:
+  LANG: "zh_CN.UTF-8"
+
+jobs:
+  get_report_html:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+        architecture: 'x64'
+
+    - name: Install databricks-cli
+      uses: microsoft/install-databricks-cli@v1.0.0
+
+    - name: Get report files from DBFS
+      run: |
+        databricks fs cp -r "${{secrets.DATABRICKS_DATADOCS_ROOT}}" ./
+      env:
+        DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
+        DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
+        DATABRICKS_TOKEN: "${{secrets.DATABRICKS_TOKEN}}"
+
+    - name: Deploy pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+        force_orphan: true
+
