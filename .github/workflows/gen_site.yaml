@@ -29,7 +29,10 @@ jobs:
 
     - name: Get report files from DBFS
       run: |
-        databricks fs cp -r "${{secrets.DATABRICKS_DATADOCS_ROOT}}"/local_site ./
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/local_site ./lily
+        databricks fs cp -r "${{secrets.GE_LILY_WEAK_DATADOCS_ROOT}}"/local_site ./lily_weak
+        databricks fs cp -r "${{secrets.GE_LILYX_DATADOCS_ROOT}}"/local_site ./lilyx
+        databricks fs cp -r "${{secrets.GE_OBSERVABLE_DATADOCS_ROOT}}"/local_site ./observable
       env:
         DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
         DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
