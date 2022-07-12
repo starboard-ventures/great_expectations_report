@@ -27,11 +27,36 @@ jobs:
     - name: Install databricks-cli
       uses: microsoft/install-databricks-cli@v1.0.0
 
-    - name: Get report files from DBFS
+    - name: Get lily strong rule report files from DBFS
+      continue-on-error: true
       run: |
         databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/local_site ./lily
+      env:
+        DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
+        DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
+        DATABRICKS_TOKEN: "${{secrets.DATABRICKS_TOKEN}}"
+
+    - name: Get lily weak rule report files from DBFS
+      continue-on-error: true
+      run: |
         databricks fs cp -r "${{secrets.GE_LILY_WEAK_DATADOCS_ROOT}}"/local_site ./lily_weak
+      env:
+        DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
+        DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
+        DATABRICKS_TOKEN: "${{secrets.DATABRICKS_TOKEN}}"
+
+    - name: Get extended lily(middle tables) report files from DBFS
+      continue-on-error: true
+      run: |
         databricks fs cp -r "${{secrets.GE_LILYX_DATADOCS_ROOT}}"/local_site ./lilyx
+      env:
+        DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
+        DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
+        DATABRICKS_TOKEN: "${{secrets.DATABRICKS_TOKEN}}"
+
+    - name: Get observable report files from DBFS
+      continue-on-error: true
+      run: |
         databricks fs cp -r "${{secrets.GE_OBSERVABLE_DATADOCS_ROOT}}"/local_site ./observable
       env:
         DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
