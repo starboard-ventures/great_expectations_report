@@ -12,7 +12,7 @@ env:
 
 jobs:
   get_report_html:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
@@ -58,6 +58,15 @@ jobs:
       continue-on-error: true
       run: |
         databricks fs cp -r "${{secrets.GE_OBSERVABLE_DATADOCS_ROOT}}"/local_site ./observable
+      env:
+        DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
+        DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
+        DATABRICKS_TOKEN: "${{secrets.DATABRICKS_TOKEN}}"
+
+    - name: Get fvm(mainnet) report files from DBFS
+      continue-on-error: true
+      run: |
+        databricks fs cp -r "${{secrets.GE_FVMSTAT_MAINNET_DATADOCS_ROOT}}"/local_site ./fvmstat_mainnet
       env:
         DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
         DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"

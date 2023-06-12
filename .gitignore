@@ -1,2 +1,3 @@
 *.swp
+*.secret
 __pycache__
