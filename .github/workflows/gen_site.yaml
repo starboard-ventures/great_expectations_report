@@ -30,7 +30,33 @@ jobs:
     - name: Get lily strong rule report files from DBFS
       continue-on-error: true
       run: |
-        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/local_site ./lily
+        mkdir ./lily
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/actors/gx/uncommitted/data_docs/local_site ./lily/actors
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/actor_states/gx/uncommitted/data_docs/local_site ./lily/actor_states
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/block_headers/gx/uncommitted/data_docs/local_site ./lily/block_headers
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/builtin_actor_events/gx/uncommitted/data_docs/local_site ./lily/builtin_actor_events
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/chain_economics/gx/uncommitted/data_docs/local_site ./lily/chain_economics
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/chain_economics_v2/gx/uncommitted/data_docs/local_site ./lily/chain_economics_v2
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/chain_powers/gx/uncommitted/data_docs/local_site ./lily/chain_powers
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/chain_rewards/gx/uncommitted/data_docs/local_site ./lily/chain_rewards
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/data_cap_balances/gx/uncommitted/data_docs/local_site ./lily/data_cap_balances
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/fevm_actor_stats/gx/uncommitted/data_docs/local_site ./lily/fevm_actor_stats
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/id_addresses/gx/uncommitted/data_docs/local_site ./lily/id_addresses
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/market_deal_proposals/gx/uncommitted/data_docs/local_site ./lily/market_deal_proposals
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/market_deal_states/gx/uncommitted/data_docs/local_site ./lily/market_deal_states
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/message_gas_economy/gx/uncommitted/data_docs/local_site ./lily/message_gas_economy
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_beneficiaries/gx/uncommitted/data_docs/local_site ./lily/miner_beneficiaries
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_fee_debts/gx/uncommitted/data_docs/local_site ./lily/miner_fee_debts
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_infos/gx/uncommitted/data_docs/local_site ./lily/miner_infos
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_locked_funds/gx/uncommitted/data_docs/local_site ./lily/miner_locked_funds
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_sector_deals_v2/gx/uncommitted/data_docs/local_site ./lily/miner_sector_deals_v2
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_sector_events/gx/uncommitted/data_docs/local_site ./lily/miner_sector_events
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/miner_sector_infos_v7/gx/uncommitted/data_docs/local_site ./lily/miner_sector_infos_v7
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/multisig_approvals/gx/uncommitted/data_docs/local_site ./lily/multisig_approvals
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/multisig_transactions/gx/uncommitted/data_docs/local_site ./lily/multisig_transactions
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/parsed_messages/gx/uncommitted/data_docs/local_site ./lily/parsed_messages
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/power_actor_claims/gx/uncommitted/data_docs/local_site ./lily/power_actor_claims
+        databricks fs cp -r "${{secrets.GE_LILY_DATADOCS_ROOT}}"/vm_messages/gx/uncommitted/data_docs/local_site ./lily/vm_messages
       env:
         DATABRICKS_HOST: "${{secrets.DATABRICKS_HOST}}"
         DATABRICKS_USERNAME: "${{secrets.DATABRICKS_USERNAME}}"
