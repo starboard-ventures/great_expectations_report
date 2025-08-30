@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Docs created by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+
+
+  
+
+<link rel="shortcut icon" href="./static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+
+
+
+
+  
+
+
+  
+<style type="text/css">
+div.card-footer .container {
+    padding-top: 0;
+}
+div.walkthrough-card {
+    height: 100%;
+ }
+div.modal-body {
+    height: 700px
+}
+div.image-sizer {
+    max-height: 400px;
+    width: 100%;
+    padding: 0 40px;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+.code-snippet {
+    margin: 0 40px 1em 40px;
+    padding: 1em 40px;
+}
+code.inline-code {
+    padding: 2px 5px;
+}
+img.dev-loop {
+    max-height: 250px;
+}
+.json-key {
+    color: #333333;
+    font-weight: bold;
+}
+.json-str {
+    color: darkgreen;
+}
+.json-bool {
+    color: darkorange;
+}
+.json-number {
+    color: darkblue;
+}
+</style>
+
+<div class="modal fade ge-walkthrough-modal" tabindex="-1" role="dialog" aria-labelledby="ge-walkthrough-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="ge-walkthrough-modal-title">Great Expectations Walkthrough</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card walkthrough-card bg-dark text-white walkthrough-1">
+        <div class="card-header"><h4>How to work with Great Expectations</h4></div>
+            <div class="card-body">
+              <div class="image-sizer text-center">
+                  <img src="./static/images/iterative-dev-loop.png" class="img-fluid rounded-sm mx-auto dev-loop">
+              </div>
+                  <p>
+                      Welcome! Now that you have initialized your project, the best way to work with Great Expectations is in this iterative dev loop:
+                  </p>
+                <ol>
+                    <li>Let Great Expectations create a simple first draft suite, by running <code class="inline-code bg-light">great_expectations suite new</code>.</li>
+                    <li>View the suite here in Data Docs.</li>
+                    <li>Edit the suite in a Jupyter notebook by running <code class="inline-code bg-light">great_expectations suite edit</code></li>
+                    <li>Repeat Steps 2-3 until you are happy with your suite.</li>
+                    <li>Commit this suite to your source control repository.</li>
+                </ol>
+            </div>
+            <div class="card-footer walkthrough-links">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    &nbsp;
+                  </div>
+                  <div class="col-6 text-center text-secondary">
+                    1 of 7
+                    <div class="progress" style="height: 2px">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 16%" aria-valuenow="16" aria-valuemin="0" aria-valuemax="16"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(2)">Next</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-2">
+                <div class="card-header"><h4>What are Expectations?</h4></div>
+                <div class="card-body">
+                    <ul class="code-snippet bg-light text-muted rounded-sm">
+                        <li>expect_column_to_exist</li>
+                        <li>expect_table_row_count_to_be_between</li>
+                        <li>expect_column_values_to_be_unique</li>
+                        <li>expect_column_values_to_not_be_null</li>
+                        <li>expect_column_values_to_be_between</li>
+                        <li>expect_column_values_to_match_regex</li>
+                        <li>expect_column_mean_to_be_between</li>
+                        <li>expect_column_kl_divergence_to_be_less_than</li>
+                        <li>... <a href="https://greatexpectations.io/expectations">and many more</a></li>
+                    </ul>
+                  <p>An expectation is a falsifiable, verifiable statement about data.</p>
+                  <p>Expectations provide a language to talk about data characteristics and data quality - humans to humans, humans to machines and machines to machines.</p>
+                  <p>Expectations are both data tests and docs!</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(1)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        2 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 32%" aria-valuenow="32" aria-valuemin="0" aria-valuemax="32"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(3)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-3">
+                <div class="card-header"><h4>Expectations can be presented in a machine-friendly JSON</h4></div>
+                <div class="card-body">
+                    <p class="code-snippet bg-light text-muted rounded-sm">
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"expectation_type"</span>: <span class="json-str">"expect_column_values_to_not_be_null",</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"kwargs"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"column"</span>: <span class="json-str">"user_id"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+                    </p>
+                  <p>A machine can test if a dataset conforms to the expectation.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(2)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        3 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(4)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-4">
+                <div class="card-header"><h4>Validation produces a validation result object</h4></div>
+                <div class="card-body">
+                     <p class="code-snippet bg-light text-muted rounded-sm">
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"success"</span>: <span class="json-bool">false</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"result":</span> {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"element_count"</span>: <span class="json-number">253405,</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"unexpected_count"</span>: <span class="json-number">7602,</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"unexpected_percent"</span>: <span class="json-number">2.999</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"expectation_config"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"expectation_type"</span>: <span class="json-str">"expect_column_values_to_not_be_null"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"kwargs"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"column"</span>: <span class="json-str">"user_id"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+                    </p>
+                  <p>Here's an example Validation Result (not from your data) in JSON format. This object has rich context about the test failure.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(3)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        4 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 68%" aria-valuenow="68" aria-valuemin="0" aria-valuemax="68"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(5)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-5">
+                <div class="card-header"><h4>Validation results save you time.</h4></div>
+                <div class="card-body">
+                  <div class="image-sizer text-center">
+                      <img src="./static/images/validation_failed_unexpected_values.gif" class="img-fluid rounded-sm mx-auto">
+                  </div>
+                  <p>This is an example of what a single failed Expectation looks like in Data Docs. Note the failure includes unexpected values from your data. This helps you debug pipelines faster.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(4)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        5 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="84"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(6)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-6">
+                <div class="card-header"><h4>Great Expectations provides a large library of expectations.</h4></div>
+                <div class="card-body">
+                  <div class="image-sizer text-center">
+                      <img src="./static/images/glossary_scroller.gif" class="img-fluid rounded-sm mx-auto">
+                  </div>
+                  <p><a href="https://greatexpectations.io/expectations">Nearly 50 built in expectations</a> allow you to express how you understand your data, and you can add custom
+                  expectations if you need a new one.
+                  </p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(5)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        6 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="84"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(7)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-7">
+                <div class="card-header"><h4>Now explore and edit the sample suite!</h4></div>
+                <div class="card-body">
+                  <p>This sample suite shows you a few examples of expectations.</p>
+                  <p>This Expectation Suite may not be a complete assessment of the quality of your data. You should review and edit the Expectations based on domain knowledge.</p>
+                  <p>When you are ready, press the <strong>How to Edit</strong> button to kick off the iterative dev loop.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(6)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        7 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary float-right" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">Done</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/JavaScript">
+  $(".ge-walkthrough-modal").on('hide.bs.modal', function (e) {
+    try {
+      localStorage.setItem('ge-walkthrough-modal-dismissed', 'true');
+    }
+    catch (e) {
+      console.log(e);
+    }
+    go_to_slide(1);
+  })
+</script>
+
+
+<script type="text/JavaScript">
+  function go_to_slide(slide_number) {
+    hide_cards();
+    $('.walkthrough-' + slide_number).show();
+  }
+  function hide_cards() {
+    $('.walkthrough-card').hide();
+  }
+  hide_cards();
+  go_to_slide(1);
+</script>
+
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="#">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20250830T091127.334749Z&dataContextId=41829c3e-0480-4f34-a2ab-b033e0616ce3"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+    </nav>
+  </div>
+</nav>
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <p>
+        Data Docs autogenerated using
+        <a href="https://greatexpectations.io">Great Expectations</a>.
+      </p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+    
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target=".ge-walkthrough-modal">
+            Show Walkthrough
+          </button>
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+          
+            <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 ge-index-page-site-name-title" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <span >
+                    <strong >Data Docs</strong> | local_site
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-12 ge-index-page-tabs-container" >
+
+    
+
+
+
+
+
+
+
+
+<div
+        id="section-1-content-block-2-tabs-container"
+        
+>
+  <ul class="nav nav-tabs" id=section-1-content-block-2-tabs-nav role="tablist">
+    
+      <li class="nav-item">
+        <a
+            class="nav-link active"
+            id="Validation-Results-tab"
+            data-toggle="tab"
+            href="#Validation-Results"
+            role="tab"
+            aria-selected="true"
+            aria-controls="Validation-Results">
+          Validation Results
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a
+            class="nav-link"
+            id="Expectation-Suites-tab"
+            data-toggle="tab"
+            href="#Expectation-Suites"
+            role="tab"
+            aria-selected="false"
+            aria-controls="Expectation-Suites">
+          Expectation Suites
+        </a>
+      </li>
+    
+  </ul>
+
+  <div class="tab-content" id="section-1-content-block-2-tabs-content">
+    
+      <div
+        class="tab-pane fade show active"
+        id="Validation-Results"
+        role="tabpanel"
+        aria-labelledby="Validation-Results-tab">
+        
+
+
+
+
+
+
+  
+
+
+<div id="section-1-content-block-2-1-body-table-toolbar" class="ml-1">
+  
+    <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-1-body-table')">Clear Filters</button>
+  
+</div>
+
+<table
+  id="section-1-content-block-2-1-body-table"
+  class="table-sm ge-index-page-validation-results-table" 
+  data-toggle="table"
+>
+</table>
+
+<script>
+  function rowStyleLinks(row, index) {
+    return {
+      css: {
+        cursor: "pointer"
+      }
+    }
+  }
+
+  function rowAttributesLinks(row, index) {
+    return {
+      "class": "clickable-row",
+      "data-href": row._table_row_link_path
+    }
+  }
+
+  function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+    return row._expectation_suite_name_sort;
+  }
+
+  function validationSuccessFilterDataCollector(value, row, formattedValue) {
+    return row._validation_success_text;
+  }
+
+    function getFormattedDateWithoutTime  (d) {
+
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+  function formatRuntimeDateForFilter(text, value, field, data){
+    const cellValueAsDateObj = new Date(value);
+    return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+  }
+
+  function clearTableFilters(tableId) {
+    $(`#${tableId}`).bootstrapTable('clearFilterControl');
+    $(`#${tableId}`).bootstrapTable('resetSearch');
+  }
+</script>
+
+<script>
+  $('#section-1-content-block-2-1-body-table').bootstrapTable(
+    Object.assign(
+      {
+        columns: [{'field': 'validation_success', 'title': 'Status', 'sortable': 'true', 'align': 'center', 'filterControl': 'select', 'filterDataCollector': 'validationSuccessFilterDataCollector'}, {'field': 'run_time', 'title': 'Run Time', 'sortName': '_run_time_sort', 'sortable': 'true', 'filterControl': 'datepicker', 'filterCustomSearch': 'formatRuntimeDateForFilter', 'filterDatepickerOptions': {'clearBtn': 'true', 'autoclose': 'true', 'format': 'yyyy-mm-dd', 'todayHighlight': 'true'}}, {'field': 'run_name', 'title': 'Run Name', 'sortable': 'true', 'filterControl': 'input'}, {'field': 'asset_name', 'title': 'Asset Name', 'sortable': 'true', 'filterControl': 'select'}, {'field': 'batch_identifier', 'title': 'Batch ID', 'sortName': '_batch_identifier_sort', 'sortable': 'true', 'filterControl': 'input'}, {'field': 'expectation_suite_name', 'title': 'Expectation Suite', 'sortName': '_expectation_suite_name_sort', 'sortable': 'true', 'filterControl': 'select', 'filterDataCollector': 'expectationSuiteNameFilterDataCollector'}],
+        data: [{'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:11:02 UTC', '_run_time_sort': 1756545062.604395, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-circulating_supply_daily__has_valid_fil\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-circulating_supply_daily__has_valid_fil', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_lower_bound_circulating_supply_daily__has_valid_fil.html" style="word-break:break-all;" >\n                    column_value_lower_bound_circulating_supply_daily__has_valid_fil\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_lower_bound_circulating_supply_daily__has_valid_fil', '_table_row_link_path': 'validations/column_value_lower_bound_circulating_supply_daily__has_valid_fil/validate_observable/20250830T091102.604395Z/starboard_observable-circulating_supply_daily__has_valid_fil.html', '_validation_success_text': 'Success', 'asset_name': 'circulating_supply_daily__has_valid_fil'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:10:48 UTC', '_run_time_sort': 1756545048.185713, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-new_deals_daily__has_new_deal\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-new_deals_daily__has_new_deal', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_lower_bound_new_deals_daily__has_new_deal.html" style="word-break:break-all;" >\n                    column_value_lower_bound_new_deals_daily__has_new_deal\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_lower_bound_new_deals_daily__has_new_deal', '_table_row_link_path': 'validations/column_value_lower_bound_new_deals_daily__has_new_deal/validate_observable/20250830T091048.185713Z/starboard_observable-new_deals_daily__has_new_deal.html', '_validation_success_text': 'Success', 'asset_name': 'new_deals_daily__has_new_deal'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:10:38 UTC', '_run_time_sort': 1756545038.309695, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-sectors_daily_fee__total_daily_fee_is_valid\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-sectors_daily_fee__total_daily_fee_is_valid', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_sectors_daily_fee__total_daily_fee_is_valid.html" style="word-break:break-all;" >\n                    column_value_is_zero_sectors_daily_fee__total_daily_fee_is_valid\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_sectors_daily_fee__total_daily_fee_is_valid', '_table_row_link_path': 'validations/column_value_is_zero_sectors_daily_fee__total_daily_fee_is_valid/validate_observable/20250830T091038.309695Z/starboard_observable-sectors_daily_fee__total_daily_fee_is_valid.html', '_validation_success_text': 'Success', 'asset_name': 'sectors_daily_fee__total_daily_fee_is_valid'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:10:37 UTC', '_run_time_sort': 1756545037.683366, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-network_storage_capacity_daily__has_valid_power\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-network_storage_capacity_daily__has_valid_power', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_lower_bound_network_storage_capacity_daily__has_valid_power.html" style="word-break:break-all;" >\n                    column_value_lower_bound_network_storage_capacity_daily__has_valid_power\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_lower_bound_network_storage_capacity_daily__has_valid_power', '_table_row_link_path': 'validations/column_value_lower_bound_network_storage_capacity_daily__has_valid_power/validate_observable/20250830T091037.683366Z/starboard_observable-network_storage_capacity_daily__has_valid_power.html', '_validation_success_text': 'Success', 'asset_name': 'network_storage_capacity_daily__has_valid_power'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:10:37 UTC', '_run_time_sort': 1756545037.123321, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-sector_onboarding_by_method_daily__size_diff\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-sector_onboarding_by_method_daily__size_diff', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_upper_bound_sector_onboarding_by_method_daily__size_diff.html" style="word-break:break-all;" >\n                    column_value_upper_bound_sector_onboarding_by_method_daily__size_diff\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_upper_bound_sector_onboarding_by_method_daily__size_diff', '_table_row_link_path': 'validations/column_value_upper_bound_sector_onboarding_by_method_daily__size_diff/validate_observable/20250830T091037.123321Z/starboard_observable-sector_onboarding_by_method_daily__size_diff.html', '_validation_success_text': 'Success', 'asset_name': 'sector_onboarding_by_method_daily__size_diff'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:10:33 UTC', '_run_time_sort': 1756545033.187512, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-active_miner_count_daily__has_active_miner\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-active_miner_count_daily__has_active_miner', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_lower_bound_active_miner_count_daily__has_active_miner.html" style="word-break:break-all;" >\n                    column_value_lower_bound_active_miner_count_daily__has_active_miner\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_lower_bound_active_miner_count_daily__has_active_miner', '_table_row_link_path': 'validations/column_value_lower_bound_active_miner_count_daily__has_active_miner/validate_observable/20250830T091033.187512Z/starboard_observable-active_miner_count_daily__has_active_miner.html', '_validation_success_text': 'Success', 'asset_name': 'active_miner_count_daily__has_active_miner'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:57 UTC', '_run_time_sort': 1756544877.583868, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-gas_usage_msg_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-gas_usage_msg_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_gas_usage_msg_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_gas_usage_msg_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_gas_usage_msg_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_gas_usage_msg_d__day_series/validate_observable/20250830T090757.583868Z/starboard_observable-gas_usage_msg_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'gas_usage_msg_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:57 UTC', '_run_time_sort': 1756544877.492514, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_providers_by_new_deal_bytes_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_providers_by_new_deal_bytes_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_providers_by_new_deal_bytes_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_providers_by_new_deal_bytes_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_providers_by_new_deal_bytes_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_providers_by_new_deal_bytes_daily__day_series/validate_observable/20250830T090757.492514Z/starboard_observable-top10_providers_by_new_deal_bytes_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_providers_by_new_deal_bytes_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:57 UTC', '_run_time_sort': 1756544877.435511, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-gas_usage_detail_message_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-gas_usage_detail_message_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_gas_usage_detail_message_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_gas_usage_detail_message_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_gas_usage_detail_message_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_gas_usage_detail_message_d__day_series/validate_observable/20250830T090757.435511Z/starboard_observable-gas_usage_detail_message_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'gas_usage_detail_message_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:57 UTC', '_run_time_sort': 1756544877.322416, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-active_miner_count_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-active_miner_count_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_active_miner_count_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_active_miner_count_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_active_miner_count_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_active_miner_count_daily__day_series/validate_observable/20250830T090757.322416Z/starboard_observable-active_miner_count_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'active_miner_count_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:55 UTC', '_run_time_sort': 1756544875.69064, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-circulating_supply_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-circulating_supply_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_circulating_supply_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_circulating_supply_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_circulating_supply_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_circulating_supply_daily__day_series/validate_observable/20250830T090755.690640Z/starboard_observable-circulating_supply_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'circulating_supply_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:55 UTC', '_run_time_sort': 1756544875.569152, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-network_fee_breakdown_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-network_fee_breakdown_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_network_fee_breakdown_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_network_fee_breakdown_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_network_fee_breakdown_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_network_fee_breakdown_daily__day_series/validate_observable/20250830T090755.569152Z/starboard_observable-network_fee_breakdown_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'network_fee_breakdown_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:55 UTC', '_run_time_sort': 1756544875.55997, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-active_fault_breakdown_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-active_fault_breakdown_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_active_fault_breakdown_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_active_fault_breakdown_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_active_fault_breakdown_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_active_fault_breakdown_daily__day_series/validate_observable/20250830T090755.559970Z/starboard_observable-active_fault_breakdown_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'active_fault_breakdown_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:55 UTC', '_run_time_sort': 1756544875.475074, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_providers_by_active_deal_count_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_providers_by_active_deal_count_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_providers_by_active_deal_count_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_providers_by_active_deal_count_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_providers_by_active_deal_count_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_providers_by_active_deal_count_daily__day_series/validate_observable/20250830T090755.475074Z/starboard_observable-top10_providers_by_active_deal_count_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_providers_by_active_deal_count_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:55 UTC', '_run_time_sort': 1756544875.123406, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_clients_by_new_deal_count_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_clients_by_new_deal_count_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_clients_by_new_deal_count_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_clients_by_new_deal_count_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_clients_by_new_deal_count_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_clients_by_new_deal_count_daily__day_series/validate_observable/20250830T090755.123406Z/starboard_observable-top10_clients_by_new_deal_count_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_clients_by_new_deal_count_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.775047, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-sector_onboarding_by_method_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-sector_onboarding_by_method_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_sector_onboarding_by_method_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_sector_onboarding_by_method_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_sector_onboarding_by_method_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_sector_onboarding_by_method_daily__day_series/validate_observable/20250830T090754.775047Z/starboard_observable-sector_onboarding_by_method_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'sector_onboarding_by_method_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.661656, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-deal_summary_statistics_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-deal_summary_statistics_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_deal_summary_statistics_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_deal_summary_statistics_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_deal_summary_statistics_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_deal_summary_statistics_daily__day_series/validate_observable/20250830T090754.661656Z/starboard_observable-deal_summary_statistics_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'deal_summary_statistics_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.419524, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_providers_by_new_deal_count_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_providers_by_new_deal_count_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_providers_by_new_deal_count_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_providers_by_new_deal_count_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_providers_by_new_deal_count_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_providers_by_new_deal_count_daily__day_series/validate_observable/20250830T090754.419524Z/starboard_observable-top10_providers_by_new_deal_count_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_providers_by_new_deal_count_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.383105, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-commit_and_expire_pledge_his__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-commit_and_expire_pledge_his__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_commit_and_expire_pledge_his__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_commit_and_expire_pledge_his__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_commit_and_expire_pledge_his__day_series', '_table_row_link_path': 'validations/column_value_is_zero_commit_and_expire_pledge_his__day_series/validate_observable/20250830T090754.383105Z/starboard_observable-commit_and_expire_pledge_his__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'commit_and_expire_pledge_his__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.320445, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-gas_top_storage_provider_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-gas_top_storage_provider_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_gas_top_storage_provider_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_gas_top_storage_provider_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_gas_top_storage_provider_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_gas_top_storage_provider_d__day_series/validate_observable/20250830T090754.320445Z/starboard_observable-gas_top_storage_provider_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'gas_top_storage_provider_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.056141, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-prove_commit_split_d_v2__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-prove_commit_split_d_v2__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_prove_commit_split_d_v2__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_prove_commit_split_d_v2__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_prove_commit_split_d_v2__day_series', '_table_row_link_path': 'validations/column_value_is_zero_prove_commit_split_d_v2__day_series/validate_observable/20250830T090754.056141Z/starboard_observable-prove_commit_split_d_v2__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'prove_commit_split_d_v2__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:54 UTC', '_run_time_sort': 1756544874.044409, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-deal_states_aggregate_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-deal_states_aggregate_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_deal_states_aggregate_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_deal_states_aggregate_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_deal_states_aggregate_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_deal_states_aggregate_daily__day_series/validate_observable/20250830T090754.044409Z/starboard_observable-deal_states_aggregate_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'deal_states_aggregate_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:53 UTC', '_run_time_sort': 1756544873.477902, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_clients_by_active_deal_count_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_clients_by_active_deal_count_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_clients_by_active_deal_count_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_clients_by_active_deal_count_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_clients_by_active_deal_count_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_clients_by_active_deal_count_daily__day_series/validate_observable/20250830T090753.477902Z/starboard_observable-top10_clients_by_active_deal_count_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_clients_by_active_deal_count_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:53 UTC', '_run_time_sort': 1756544873.24408, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_providers_by_active_deal_bytes_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_providers_by_active_deal_bytes_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_providers_by_active_deal_bytes_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_providers_by_active_deal_bytes_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_providers_by_active_deal_bytes_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_providers_by_active_deal_bytes_daily__day_series/validate_observable/20250830T090753.244080Z/starboard_observable-top10_providers_by_active_deal_bytes_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_providers_by_active_deal_bytes_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:53 UTC', '_run_time_sort': 1756544873.023314, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-exchange_token_flow_stat_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-exchange_token_flow_stat_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_exchange_token_flow_stat_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_exchange_token_flow_stat_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_exchange_token_flow_stat_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_exchange_token_flow_stat_daily__day_series/validate_observable/20250830T090753.023314Z/starboard_observable-exchange_token_flow_stat_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'exchange_token_flow_stat_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:51 UTC', '_run_time_sort': 1756544871.532093, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-network_block_reward_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-network_block_reward_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_network_block_reward_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_network_block_reward_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_network_block_reward_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_network_block_reward_daily__day_series/validate_observable/20250830T090751.532093Z/starboard_observable-network_block_reward_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'network_block_reward_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:51 UTC', '_run_time_sort': 1756544871.270754, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-storage_state_d_his__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-storage_state_d_his__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_storage_state_d_his__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_storage_state_d_his__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_storage_state_d_his__day_series', '_table_row_link_path': 'validations/column_value_is_zero_storage_state_d_his__day_series/validate_observable/20250830T090751.270754Z/starboard_observable-storage_state_d_his__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'storage_state_d_his__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:51 UTC', '_run_time_sort': 1756544871.236635, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-gas_fee_overview_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-gas_fee_overview_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_gas_fee_overview_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_gas_fee_overview_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_gas_fee_overview_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_gas_fee_overview_d__day_series/validate_observable/20250830T090751.236635Z/starboard_observable-gas_fee_overview_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'gas_fee_overview_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:50 UTC', '_run_time_sort': 1756544870.132554, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-sectors_daily_fee__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-sectors_daily_fee__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_sectors_daily_fee__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_sectors_daily_fee__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_sectors_daily_fee__day_series', '_table_row_link_path': 'validations/column_value_is_zero_sectors_daily_fee__day_series/validate_observable/20250830T090750.132554Z/starboard_observable-sectors_daily_fee__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'sectors_daily_fee__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:49 UTC', '_run_time_sort': 1756544869.501038, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-address_stat_aggregate_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-address_stat_aggregate_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_address_stat_aggregate_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_address_stat_aggregate_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_address_stat_aggregate_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_address_stat_aggregate_daily__day_series/validate_observable/20250830T090749.501038Z/starboard_observable-address_stat_aggregate_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'address_stat_aggregate_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:49 UTC', '_run_time_sort': 1756544869.493304, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-gas_distribution_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-gas_distribution_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_gas_distribution_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_gas_distribution_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_gas_distribution_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_gas_distribution_d__day_series/validate_observable/20250830T090749.493304Z/starboard_observable-gas_distribution_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'gas_distribution_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:49 UTC', '_run_time_sort': 1756544869.288829, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-economics_sector_pledges_returns_32g_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-economics_sector_pledges_returns_32g_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_economics_sector_pledges_returns_32g_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_economics_sector_pledges_returns_32g_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_economics_sector_pledges_returns_32g_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_economics_sector_pledges_returns_32g_d__day_series/validate_observable/20250830T090749.288829Z/starboard_observable-economics_sector_pledges_returns_32g_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'economics_sector_pledges_returns_32g_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:49 UTC', '_run_time_sort': 1756544869.05734, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-gas_detail_message_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-gas_detail_message_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_gas_detail_message_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_gas_detail_message_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_gas_detail_message_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_gas_detail_message_d__day_series/validate_observable/20250830T090749.057340Z/starboard_observable-gas_detail_message_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'gas_detail_message_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:48 UTC', '_run_time_sort': 1756544868.640163, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-fault_status_breakdown_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-fault_status_breakdown_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_fault_status_breakdown_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_fault_status_breakdown_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_fault_status_breakdown_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_fault_status_breakdown_daily__day_series/validate_observable/20250830T090748.640163Z/starboard_observable-fault_status_breakdown_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'fault_status_breakdown_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:48 UTC', '_run_time_sort': 1756544868.021976, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-deal_client_headcount_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-deal_client_headcount_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_deal_client_headcount_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_deal_client_headcount_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_deal_client_headcount_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_deal_client_headcount_daily__day_series/validate_observable/20250830T090748.021976Z/starboard_observable-deal_client_headcount_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'deal_client_headcount_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:44 UTC', '_run_time_sort': 1756544864.72819, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-new_deals_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-new_deals_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_new_deals_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_new_deals_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_new_deals_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_new_deals_daily__day_series/validate_observable/20250830T090744.728190Z/starboard_observable-new_deals_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'new_deals_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:44 UTC', '_run_time_sort': 1756544864.114239, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_clients_by_active_deal_bytes_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_clients_by_active_deal_bytes_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_clients_by_active_deal_bytes_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_clients_by_active_deal_bytes_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_clients_by_active_deal_bytes_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_clients_by_active_deal_bytes_daily__day_series/validate_observable/20250830T090744.114239Z/starboard_observable-top10_clients_by_active_deal_bytes_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_clients_by_active_deal_bytes_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:44 UTC', '_run_time_sort': 1756544864.011461, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-network_locked_fil_breakdown_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-network_locked_fil_breakdown_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_network_locked_fil_breakdown_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_network_locked_fil_breakdown_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_network_locked_fil_breakdown_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_network_locked_fil_breakdown_daily__day_series/validate_observable/20250830T090744.011461Z/starboard_observable-network_locked_fil_breakdown_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'network_locked_fil_breakdown_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:44 UTC', '_run_time_sort': 1756544864.003641, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-top10_clients_by_new_deal_bytes_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-top10_clients_by_new_deal_bytes_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_top10_clients_by_new_deal_bytes_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_top10_clients_by_new_deal_bytes_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_top10_clients_by_new_deal_bytes_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_top10_clients_by_new_deal_bytes_daily__day_series/validate_observable/20250830T090744.003641Z/starboard_observable-top10_clients_by_new_deal_bytes_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'top10_clients_by_new_deal_bytes_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:43 UTC', '_run_time_sort': 1756544863.829373, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-economics_sector_pledges_returns_64g_d__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-economics_sector_pledges_returns_64g_d__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_economics_sector_pledges_returns_64g_d__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_economics_sector_pledges_returns_64g_d__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_economics_sector_pledges_returns_64g_d__day_series', '_table_row_link_path': 'validations/column_value_is_zero_economics_sector_pledges_returns_64g_d__day_series/validate_observable/20250830T090743.829373Z/starboard_observable-economics_sector_pledges_returns_64g_d__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'economics_sector_pledges_returns_64g_d__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:43 UTC', '_run_time_sort': 1756544863.648809, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-network_storage_capacity_daily__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-network_storage_capacity_daily__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_network_storage_capacity_daily__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_network_storage_capacity_daily__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_network_storage_capacity_daily__day_series', '_table_row_link_path': 'validations/column_value_is_zero_network_storage_capacity_daily__day_series/validate_observable/20250830T090743.648809Z/starboard_observable-network_storage_capacity_daily__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'network_storage_capacity_daily__day_series'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2025-08-30 09:07:41 UTC', '_run_time_sort': 1756544861.878016, 'run_name': 'validate_observable', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    starboard_observable-sectors_schedule_expiration_potential__day_series\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "SparkDataFrame"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': 'starboard_observable-sectors_schedule_expiration_potential__day_series', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations/column_value_is_zero_sectors_schedule_expiration_potential__day_series.html" style="word-break:break-all;" >\n                    column_value_is_zero_sectors_schedule_expiration_potential__day_series\n                </a>\n            ', '_expectation_suite_name_sort': 'column_value_is_zero_sectors_schedule_expiration_potential__day_series', '_table_row_link_path': 'validations/column_value_is_zero_sectors_schedule_expiration_potential__day_series/validate_observable/20250830T090741.878016Z/starboard_observable-sectors_schedule_expiration_potential__day_series.html', '_validation_success_text': 'Success', 'asset_name': 'sectors_schedule_expiration_potential__day_series'}],
+        toolbar: '#section-1-content-block-2-1-body-table-toolbar'
+      },
+      {'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'run_time', 'sortOrder': 'desc', 'pagination': 'true', 'filterControl': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right', 'showSearchClearButton': 'true'}
+    )
+  );
+
+  
+
+  
+    $(document).ready(function() {
+      $("#section-1-content-block-2-1-body-table").on('click-row.bs.table', function(e, row, $element) {
+          window.location = $element.data("href");
+        })
+      }
+    );
+  
+</script>
+      </div>
+    
+      <div
+        class="tab-pane fade"
+        id="Expectation-Suites"
+        role="tabpanel"
+        aria-labelledby="Expectation-Suites-tab">
+        
+
+
+
+
+
+
+  
+
+
+<div id="section-1-content-block-2-2-body-table-toolbar" class="ml-1">
+  
+    <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-2-body-table')">Clear Filters</button>
+  
+</div>
+
+<table
+  id="section-1-content-block-2-2-body-table"
+  class="table-sm ge-index-page-expectation_suites-table" 
+  data-toggle="table"
+>
+</table>
+
+<script>
+  function rowStyleLinks(row, index) {
+    return {
+      css: {
+        cursor: "pointer"
+      }
+    }
+  }
+
+  function rowAttributesLinks(row, index) {
+    return {
+      "class": "clickable-row",
+      "data-href": row._table_row_link_path
+    }
+  }
+
+  function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+    return row._expectation_suite_name_sort;
+  }
+
+  function validationSuccessFilterDataCollector(value, row, formattedValue) {
+    return row._validation_success_text;
+  }
+
+    function getFormattedDateWithoutTime  (d) {
+
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+  function formatRuntimeDateForFilter(text, value, field, data){
+    const cellValueAsDateObj = new Date(value);
+    return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+  }
+
+  function clearTableFilters(tableId) {
+    $(`#${tableId}`).bootstrapTable('clearFilterControl');
+    $(`#${tableId}`).bootstrapTable('resetSearch');
+  }
+</script>
+
+<script>
+  $('#section-1-content-block-2-2-body-table').bootstrapTable(
+    Object.assign(
+      {
+        columns: [{'field': 'expectation_suite_name', 'title': 'Expectation Suites', 'sortable': 'true'}],
+        data: [{'expectation_suite_name': 'column_value_is_zero_active_fault_breakdown_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_active_fault_breakdown_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_active_miner_count_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_active_miner_count_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_address_stat_aggregate_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_address_stat_aggregate_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_circulating_supply_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_circulating_supply_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_commit_and_expire_pledge_his__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_commit_and_expire_pledge_his__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_deal_client_headcount_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_deal_client_headcount_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_deal_states_aggregate_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_deal_states_aggregate_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_deal_summary_statistics_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_deal_summary_statistics_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_economics_sector_pledges_returns_32g_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_economics_sector_pledges_returns_32g_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_economics_sector_pledges_returns_64g_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_economics_sector_pledges_returns_64g_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_exchange_token_flow_stat_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_exchange_token_flow_stat_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_fault_status_breakdown_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_fault_status_breakdown_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_gas_detail_message_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_gas_detail_message_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_gas_distribution_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_gas_distribution_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_gas_fee_overview_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_gas_fee_overview_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_gas_top_storage_provider_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_gas_top_storage_provider_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_gas_usage_detail_message_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_gas_usage_detail_message_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_gas_usage_msg_d__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_gas_usage_msg_d__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_network_block_reward_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_network_block_reward_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_network_fee_breakdown_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_network_fee_breakdown_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_network_locked_fil_breakdown_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_network_locked_fil_breakdown_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_network_storage_capacity_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_network_storage_capacity_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_new_deals_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_new_deals_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_prove_commit_split_d_v2__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_prove_commit_split_d_v2__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_sector_onboarding_by_method_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_sector_onboarding_by_method_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_sectors_daily_fee__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_sectors_daily_fee__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_sectors_daily_fee__total_daily_fee_is_valid', '_table_row_link_path': 'expectations/column_value_is_zero_sectors_daily_fee__total_daily_fee_is_valid.html'}, {'expectation_suite_name': 'column_value_is_zero_sectors_schedule_expiration_potential__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_sectors_schedule_expiration_potential__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_storage_state_d_his__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_storage_state_d_his__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_clients_by_active_deal_bytes_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_clients_by_active_deal_bytes_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_clients_by_active_deal_count_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_clients_by_active_deal_count_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_clients_by_new_deal_bytes_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_clients_by_new_deal_bytes_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_clients_by_new_deal_count_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_clients_by_new_deal_count_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_providers_by_active_deal_bytes_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_providers_by_active_deal_bytes_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_providers_by_active_deal_count_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_providers_by_active_deal_count_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_providers_by_new_deal_bytes_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_providers_by_new_deal_bytes_daily__day_series.html'}, {'expectation_suite_name': 'column_value_is_zero_top10_providers_by_new_deal_count_daily__day_series', '_table_row_link_path': 'expectations/column_value_is_zero_top10_providers_by_new_deal_count_daily__day_series.html'}, {'expectation_suite_name': 'column_value_lower_bound_active_miner_count_daily__has_active_miner', '_table_row_link_path': 'expectations/column_value_lower_bound_active_miner_count_daily__has_active_miner.html'}, {'expectation_suite_name': 'column_value_lower_bound_circulating_supply_daily__has_valid_fil', '_table_row_link_path': 'expectations/column_value_lower_bound_circulating_supply_daily__has_valid_fil.html'}, {'expectation_suite_name': 'column_value_lower_bound_network_storage_capacity_daily__has_valid_power', '_table_row_link_path': 'expectations/column_value_lower_bound_network_storage_capacity_daily__has_valid_power.html'}, {'expectation_suite_name': 'column_value_lower_bound_new_deals_daily__has_new_deal', '_table_row_link_path': 'expectations/column_value_lower_bound_new_deals_daily__has_new_deal.html'}, {'expectation_suite_name': 'column_value_upper_bound_sector_onboarding_by_method_daily__size_diff', '_table_row_link_path': 'expectations/column_value_upper_bound_sector_onboarding_by_method_daily__size_diff.html'}],
+        toolbar: '#section-1-content-block-2-2-body-table-toolbar'
+      },
+      {'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'expectation_suite_name', 'sortOrder': 'asc', 'pagination': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right'}
+    )
+  );
+
+  
+
+  
+    $(document).ready(function() {
+      $("#section-1-content-block-2-2-body-table").on('click-row.bs.table', function(e, row, $element) {
+          window.location = $element.data("href");
+        })
+      }
+    );
+  
+</script>
+      </div>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+          
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+
+    
+      <footer class="border border-info alert alert-info fixed-bottom alert-dismissible fade show m-0 rounded-0 invisible" id="ge-cta-footer" role="alert" >
+  <h5 class="alert-heading text-center">
+    
+                <span class="cooltip" >
+                    <i class="m-1 fas fa-question-circle" ></i>
+                    <span class=top>
+                        To disable this footer, set the show_how_to_buttons flag in your project's data_docs_sites config to false.
+                    </span>
+                </span>
+            
+    To continue exploring Great Expectations check out one of these tutorials...
+  </h5>
+  <div class="d-flex justify-content-center flex-sm-row flex-column">
+    
+      <a href="https://docs.greatexpectations.io/docs/guides/expectations/how_to_create_and_edit_expectations_with_instant_feedback_from_a_sample_batch_of_data" class="btn btn-primary m-2" rel="noopener noreferrer" target="_blank">How to Create Expectations</a>
+    
+      <a href="https://docs.greatexpectations.io/docs/guides/validation/checkpoints/how_to_create_a_new_checkpoint" class="btn btn-primary m-2" rel="noopener noreferrer" target="_blank">How to Validate Data</a>
+    
+      <a href="https://docs.greatexpectations.io/docs/guides/setup/configuring_data_docs/how_to_host_and_share_data_docs_on_a_filesystem" class="btn btn-primary m-2" rel="noopener noreferrer" target="_blank">How to Set Up a Team Site</a>
+    
+  </div>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</footer>
+<script>
+  if (sessionStorage.getItem("showCta") !== "false") {
+    $('#ge-cta-footer').removeClass("invisible")
+  }
+  $('#ge-cta-footer').on('closed.bs.alert', function () {
+    sessionStorage.setItem("showCta", false)
+  })
+</script>
+    
+  </body>
+</html>
